@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "380456753073",
+    "firebase_url": "https://gyanmantra-5f3e8.firebaseio.com",
+    "project_id": "gyanmantra-5f3e8",
+    "storage_bucket": "gyanmantra-5f3e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380456753073:android:87a07758fbb222d9",
+        "android_client_info": {
+          "package_name": "com.example1.android.gyanmantra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380456753073-nj92oq5cvn6n33bhcs7eq25u2jh2vhbb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example1.android.gyanmantra",
+            "certificate_hash": "3406bcc0014cd68b40a472c88a07f31a0d86b302"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9u-Xb0Tl5W4zNKCF9xfR471sY1yFmNfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380456753073-0376dbm1tvmpeppl2omg8ou3ll8o9aug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

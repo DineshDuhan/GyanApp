@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSubject"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/AddTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add Topic"
+        android:layout_marginTop="250dp"/>
+    <EditText
+        android:id="@+id/youtubeLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Youtube Link"
+        android:layout_marginTop="50dp"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Topic"
+        android:layout_marginTop="50dp"
+        android:onClick="PostSubject"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Topic"
+        android:layout_marginTop="50dp"
+        android:id="@+id/showTopic"
+        />
+
+</LinearLayout>
