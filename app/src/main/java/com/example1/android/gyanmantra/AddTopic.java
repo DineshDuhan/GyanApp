@@ -22,7 +22,7 @@ public class AddTopic extends AppCompatActivity {
     Button showtopic;
     FirebaseAuth auth;
     DatabaseReference reference;
-    private EditText addTopic,youtubelink;
+    private EditText addTopic,youtubelink,googleLink;
     public  String department_name,subject_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class AddTopic extends AppCompatActivity {
 
         addTopic = (EditText)findViewById(R.id.AddTopic);
         youtubelink = (EditText)findViewById(R.id.youtubeLink);
+        googleLink = (EditText)findViewById(R.id.GoogleLink);
         showtopic = (Button)findViewById(R.id.showTopic);
         showtopic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +62,7 @@ public class AddTopic extends AppCompatActivity {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("Topic", addTopic.getText().toString());
         hashMap.put("YoutubeLink",youtubelink.getText().toString());
+        hashMap.put("GoogleLink",googleLink.getText().toString());
         reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

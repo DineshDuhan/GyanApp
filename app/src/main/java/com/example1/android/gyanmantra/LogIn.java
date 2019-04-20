@@ -62,7 +62,7 @@ public class LogIn extends AppCompatActivity {
                                         if(auth.getCurrentUser().isEmailVerified()){
                                             String user_email = auth.getCurrentUser().getEmail().toString();
                                          //   Toast.makeText(LogIn.this, ""+auth.getCurrentUser().getDisplayName(), Toast.LENGTH_SHORT).show();
-                                            if (user_email.equals("duhandinesh1507@gmail.com")) {
+                                            if (user_email.equals("akshaykathura@gmail.com")) {
                                                 dialog.dismiss();
                                                 Intent intent = new Intent(LogIn.this, ShowDepartment.class);
                                                 startActivity(intent);

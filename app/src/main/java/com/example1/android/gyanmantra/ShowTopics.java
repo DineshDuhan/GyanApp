@@ -1,8 +1,10 @@
 package com.example1.android.gyanmantra;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,8 +29,9 @@ import java.util.ArrayList;
 public class ShowTopics extends AppCompatActivity {
     public ListView mlist;
     DatabaseReference mref;
-    public  String Link,name;
-    public  String department_name,subject_name,Subject_name_string;
+    public String Subject_name_string;
+    public  String Link,name,googlelink;
+    public  String department_name,subject_name;//,Subject_name_string;
     ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,8 @@ public class ShowTopics extends AppCompatActivity {
                     Log.i("My msg",ds.getKey());
                      name = ds.child("Topic").getValue(String.class);
                     Link = ds.child("YoutubeLink").getValue(String.class);
+                    googlelink = ds.child("GoogleLink").getValue(String.class);
+                  //  Toast.makeText(ShowTopics.this, ""+googlelink, Toast.LENGTH_SHORT).show();
                     Log.i("subject : ",""+name);
                     myList.add(name);
                     arrayAdapter.notifyDataSetChanged();
@@ -84,12 +90,41 @@ public class ShowTopics extends AppCompatActivity {
         mlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(ShowTopics.this,YoutubePlayer.class);
-                String Subject_name_string =  mlist.getItemAtPosition(position).toString();
-                i.putExtra("Subject",Subject_name_string);
-                i.putExtra("Department",department_name);
-                i.putExtra("YoutubeLink",Link);
-                startActivity(i);
+                Subject_name_string =  mlist.getItemAtPosition(position).toString();
+                AlertDialog.Builder myalert = new AlertDialog.Builder(ShowTopics.this);
+                myalert.setTitle("Study Material");
+                myalert.setMessage("What do you want to open?");
+                myalert.setPositiveButton("Youtube", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(ShowTopics.this,YoutubePlayer.class);
+
+                        intent.putExtra("Subject",Subject_name_string);
+                        intent.putExtra("Department",department_name);
+                        intent.putExtra("YoutubeLink",Link);
+                        intent.putExtra("GoogleLink",googlelink);
+                        startActivity(intent);
+
+                    }
+                });
+                myalert.setNegativeButton("Google", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Intent intent = new Intent(ShowTopics.this,GoogleStudy.class);
+
+                        intent.putExtra("Subject",Subject_name_string);
+                        intent.putExtra("Department",department_name);
+                        intent.putExtra("YoutubeLink",Link);
+                        intent.putExtra("GoogleLink",googlelink);
+                        Toast.makeText(ShowTopics.this, ""+googlelink, Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+
+                    }
+                });
+                myalert.show();
+
+
             }
         });
 
@@ -102,6 +137,7 @@ public class ShowTopics extends AppCompatActivity {
         intent.putExtra("Subject",subject_name);
         intent.putExtra("Department",department_name);
         intent.putExtra("YoutubeLink",Link);
+        intent.putExtra("GoogleLink",googlelink);
         startActivity(intent);
         finish();
     }

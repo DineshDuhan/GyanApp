@@ -17,20 +17,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Youtube Link"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/GoogleLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Google Link"
+        android:layout_marginTop="10dp"/>
 
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Topic"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:onClick="PostSubject"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Show Topic"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0dp"
         android:id="@+id/showTopic"
         />
 

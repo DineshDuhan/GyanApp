@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example1.android.gyanmantra">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".YoutubePlayer"></activity>
-        <activity android:name=".ShowTopic_User" />
-        <activity android:name=".ShowSubject_User" />
-        <activity android:name=".ShowDepartment_User" />
-        <activity android:name=".ShowTopics" />
-        <activity android:name=".AddTopic" />
-        <activity android:name=".ShowSubject" />
-        <activity android:name=".AddSubject" />
-        <activity android:name=".ShowDepartment" />
-        <activity android:name=".PostDepartment" />
-        <activity android:name=".LogIn" />
-        <activity android:name=".Register" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".GoogleStudy"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".YoutubePlayer"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ShowTopic_User"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ShowSubject_User"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ShowDepartment_User"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ShowTopics"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AddTopic"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ShowSubject"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AddSubject"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ShowDepartment"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PostDepartment"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LogIn"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Register"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

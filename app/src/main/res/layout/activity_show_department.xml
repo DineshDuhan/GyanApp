@@ -9,7 +9,7 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="500dp"
         android:id="@+id/DepartmentList"
         android:scrollbars="vertical"
         >
@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Department"
-        android:onClick="AddDepartment"/>
+        android:onClick="AddDepartment"
+        />
     
 
 </LinearLayout>

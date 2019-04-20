@@ -26,7 +26,9 @@ public class YoutubePlayer extends YouTubeBaseActivity {
 
       final String youtubelink = getIntent().getStringExtra("YoutubeLink");
 
-        Toast.makeText(YoutubePlayer.this, ""+youtubelink, Toast.LENGTH_SHORT).show();
+        String googlelink = getIntent().getStringExtra("GoogleLink");
+
+        Toast.makeText(YoutubePlayer.this, ""+googlelink, Toast.LENGTH_SHORT).show();
         youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
         button = (ImageButton) findViewById(R.id.button);
 
