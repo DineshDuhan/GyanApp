@@ -31,12 +31,17 @@ public class ShowTopics extends AppCompatActivity {
     DatabaseReference mref;
     public String Subject_name_string;
     public  String Link,name,googlelink;
+    ArrayList<String> listgoogle,listyoutube;
     public  String department_name,subject_name;//,Subject_name_string;
     ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_topics);
+
+
+        listgoogle=new ArrayList<String>();
+        listyoutube=new ArrayList<String>();
 
         dialog = new ProgressDialog(ShowTopics.this);
 
@@ -74,6 +79,8 @@ public class ShowTopics extends AppCompatActivity {
                     googlelink = ds.child("GoogleLink").getValue(String.class);
                   //  Toast.makeText(ShowTopics.this, ""+googlelink, Toast.LENGTH_SHORT).show();
                     Log.i("subject : ",""+name);
+                    listyoutube.add(Link);
+                    listgoogle.add(googlelink);
                     myList.add(name);
                     arrayAdapter.notifyDataSetChanged();
                 }
@@ -89,7 +96,7 @@ public class ShowTopics extends AppCompatActivity {
 
         mlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 Subject_name_string =  mlist.getItemAtPosition(position).toString();
                 AlertDialog.Builder myalert = new AlertDialog.Builder(ShowTopics.this);
                 myalert.setTitle("Study Material");
@@ -101,8 +108,8 @@ public class ShowTopics extends AppCompatActivity {
 
                         intent.putExtra("Subject",Subject_name_string);
                         intent.putExtra("Department",department_name);
-                        intent.putExtra("YoutubeLink",Link);
-                        intent.putExtra("GoogleLink",googlelink);
+                        intent.putExtra("YoutubeLink",listyoutube.get(position));
+                        intent.putExtra("GoogleLink",listgoogle.get(position));
                         startActivity(intent);
 
                     }
@@ -115,9 +122,9 @@ public class ShowTopics extends AppCompatActivity {
 
                         intent.putExtra("Subject",Subject_name_string);
                         intent.putExtra("Department",department_name);
-                        intent.putExtra("YoutubeLink",Link);
-                        intent.putExtra("GoogleLink",googlelink);
-                        Toast.makeText(ShowTopics.this, ""+googlelink, Toast.LENGTH_SHORT).show();
+                        intent.putExtra("YoutubeLink",listyoutube.get(position));
+                        intent.putExtra("GoogleLink",listgoogle.get(position));
+                       Toast.makeText(ShowTopics.this, ""+googlelink, Toast.LENGTH_SHORT).show();
                         startActivity(intent);
 
                     }
