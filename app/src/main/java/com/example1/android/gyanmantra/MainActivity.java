@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(firebaseUser!=null) {
             admin_email = firebaseUser.getEmail().toString();
-            if (admin_email.equals("akshaykathura@gmail.com")) {
+            if (admin_email.equals("singlasahil221@gmail.com") || admin_email.equals("dineshduhan1507@gmail.com")) {
                 Intent intent = new Intent(MainActivity.this, ShowDepartment.class);
                 startActivity(intent);
                 finish();
@@ -54,4 +54,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,Register.class);
         startActivity(intent);
     }
+
 }

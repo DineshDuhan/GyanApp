@@ -1,5 +1,6 @@
 package com.example1.android.gyanmantra;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -25,11 +26,14 @@ import java.util.ArrayList;
 public class ShowSubject_User extends AppCompatActivity {
     public ListView mlist;
     DatabaseReference mref;
+    ProgressDialog dialog;
     public  String department_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_subject__user);
+
+        dialog = new ProgressDialog(ShowSubject_User.this);
 
         getSupportActionBar().setTitle("Subject");
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
@@ -39,8 +43,7 @@ public class ShowSubject_User extends AppCompatActivity {
         department_name = getIntent().getStringExtra("Department");
 
 
-        mlist = (ListView)findViewById(R.id.DepartmentList);
-
+        mlist = (ListView)findViewById(R.id.SubjectList);
         mlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -52,13 +55,15 @@ public class ShowSubject_User extends AppCompatActivity {
             }
         });
 
+
         final ArrayList<String> myList = new ArrayList<String>();
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ShowSubject_User.this,android.R.layout.simple_list_item_1,myList);
         mlist.setAdapter(arrayAdapter);
 
 
-
+        dialog.setMessage("Wait......");
+        dialog.show();
         // fetch all
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         Query query = db.child("gyan").child(department_name).child("Subjects");
@@ -73,6 +78,7 @@ public class ShowSubject_User extends AppCompatActivity {
                     myList.add(name);
                     arrayAdapter.notifyDataSetChanged();
                 }
+                dialog.dismiss();
             }
 
 
@@ -81,6 +87,7 @@ public class ShowSubject_User extends AppCompatActivity {
 
             }
         });
+
 
     }
 

@@ -46,16 +46,16 @@ public class ShowDepartment_User extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mlist = (ListView)findViewById(R.id.DepartmentList);
-
         mlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(ShowDepartment_User.this,ShowSubject_User.class);
-                String department_name_string =  mlist.getItemAtPosition(position).toString();
+                String department_name_string = (String) mlist.getItemAtPosition(position);
                 i.putExtra("Department",department_name_string);
                 startActivity(i);
             }
         });
+
 
         final ArrayList<String> myList = new ArrayList<String>();
 
@@ -93,7 +93,10 @@ public class ShowDepartment_User extends AppCompatActivity {
      /*   for (int i = 0; i < mlist.getChildCount(); i++) {
             ((TextView)mlist.getChildAt(i)).setTextColor(Color.WHITE);
         }
-*/
+        */
+
+
+
     }
 
 
@@ -114,6 +117,13 @@ public class ShowDepartment_User extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+    public void onBackPressed(){
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+
     }
 
 }
